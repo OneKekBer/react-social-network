@@ -1,0 +1,66 @@
+.container {
+    /*display: flex;*/
+    /*justify-content: space-around;*/
+    display: grid;
+    grid-template-columns: 2fr 3fr;
+    width: 100%;
+    margin-bottom: 40px;
+
+}
+
+.dialogs {
+    padding: 10px;
+    border-right: 1px solid black;
+
+}
+
+.dialog {
+
+}
+
+.messages {
+    padding: 10px;
+}
+
+.message {
+
+}
+.active{
+    color:white;
+}
+.form{
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+
+
+}
+
+
+.btn{
+    border: none;
+    background:grey ;
+    border-radius: 32px;
+    width: 200px;
+    height: 50px;
+
+    color: white;
+    font-size: 32px;
+}
+.btn:hover{
+    background: lightgrey;
+}
+.btn:active{
+    background: white;
+}
+.input{
+    border: none;
+    border-radius: 32px;
+    background-color: lightgrey;
+
+    width: 50%;
+    height: 50px;
+
+    padding-left: 30px;
+
+}

@@ -1,0 +1,38 @@
+.container{
+    
+    /* position: fixed;
+    top: 100px; */
+    display: block;
+    height: auto;
+    width: 300px;
+
+    grid-area: nav;
+    
+    background-color: #eeeeee;
+    border-radius: 16px;
+
+}
+.list{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    padding: 20px 0 20px 0;
+}
+.item{
+    text-align: start;
+    justify-self: start;
+    text-decoration: none;
+    font-size:40px ;
+    color: #000000;
+}
+
+.item:hover{
+    background-color: rgba(77, 255, 36, 0.69);
+    border-radius:32px ;
+    padding: 5px;
+}
+.item:active{
+    color: white;
+}
