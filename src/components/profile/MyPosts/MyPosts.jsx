@@ -10,14 +10,17 @@ const MyPost = (props) => {
 
     let ImportRef = React.createRef();
     let addPost =() =>{
-        let text = ImportRef.current.value;
-        props.addPost(text)
-        props.updateNewPostText("");
+
+        props.dispatch({type: 'ADD-POST'});
+        // props.updateNewPostText("");
 
     }
     let onPostChange = () =>{
         let text = ImportRef.current.value;
-        props.updateNewPostText(text);
+
+        let action = {type: 'UPDATE-NEW-POST-TEXT', newText:text}
+        props.dispatch(action)
+
     }
 
     return (

@@ -1,17 +1,11 @@
-
-
-    let renderEntireTree = () =>{
-
-    }
-
-
-    let state = {
+let store = {
+    _state: {
         ProfilePage: {
             PostData: [
                 {id: 1, post: 'how are u?', likeCount: 12},
                 {id: 2, post: 'how are u?', likeCount: 14},
             ],
-            newPostText:'log',
+            newPostText: 'log',
         },
         DialogsPage: {
             DialogData: [
@@ -51,43 +45,45 @@
                 }
             ]
         }
+    },
+    _callSubscriber() {
 
+    },
+    getState() {
+        return this._state;
+    },
 
-    }
-
-    export let addPost = () => {
-        let newPost = {
-            id: 5,
-            post: state.ProfilePage.newPostText,
-        }
-        state.ProfilePage.PostData.push(newPost);
-        state.ProfilePage.newPostText = '';
-        renderEntireTree(state);
-    };
-    export let updateNewPostText = (newText) => {
-        state.ProfilePage.newPostText = newText;
-        renderEntireTree(state);
-    };
-
-    export let addMessage = () => {
+    addMessage() {
         let newMessage = {
             id: 4,
-            message: state.DialogsPage.newMessageText,
+            message: this._state.DialogsPage.newMessageText,
         }
-        state.DialogsPage.MessageData.push(newMessage);
-        state.DialogsPage.newMessageText = ''; // нужно чтобы не отсавлять данные на сервере а после перезагрузки написанное убрать
-        renderEntireTree(state);
-    };
-    export let updateNewMessageText = (newText) => {
-        state.DialogsPage.newMessageText = newText;
-        renderEntireTree(state);
-    };
-
-    export const subscribe = (observer) =>{
-        renderEntireTree = observer
+        this._state.DialogsPage.MessageData.push(newMessage);
+        this._state.DialogsPage.newMessageText = ''; // нужно чтобы не отсавлять данные на сервере а после перезагрузки написанное убрать
+        this._callSubscriber(this._state);
+    },
+    updateNewMessageText(newText) {
+        this._state.DialogsPage.newMessageText = newText;
+        this._callSubscriber(this.state);
+    },
+    subscribe(observer) {
+        this._callSubscriber = observer
+    },
+    dispatch(action){
+        if (action.type === 'ADD-POST'){
+            let newPost = {
+                id: 5,
+                post: this._state.ProfilePage.newPostText,
+            }
+            this._state.ProfilePage.PostData.push(newPost);
+            this._state.ProfilePage.newPostText = '';
+            this._callSubscriber(this._state);
+        }else if(action.type === 'UPDATE-NEW-POST-TEXT'){
+            this._state.ProfilePage.newPostText = action.newText;
+            this._callSubscriber(this._state);
+        }
     }
+}
 
 
-
-
-export default state;
+export default store;
