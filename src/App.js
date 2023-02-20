@@ -24,7 +24,9 @@ const App = (props) => {
                         <Route path="/profile" element={<Profile ProfilePage = {props.appState.ProfilePage}
 
                                                                  addPost = {props.addPost}
-                                                                 updateNewPostText ={props.updateNewPostText}/>}/>
+                                                                 updateNewPostText ={props.updateNewPostText}
+
+                        />}/>
 
 
 
