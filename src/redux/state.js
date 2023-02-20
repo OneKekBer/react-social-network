@@ -81,6 +81,7 @@ let store = {
         }else if(action.type === 'UPDATE-NEW-POST-TEXT'){
             this._state.ProfilePage.newPostText = action.newText;
             this._callSubscriber(this._state);
+            console.log('smth')
         }
     }
 }
