@@ -1,3 +1,6 @@
+let ADD_POST = 'ADD-POST';
+let UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT';
+
 let store = {
     _state: {
         ProfilePage: {
@@ -53,24 +56,12 @@ let store = {
         return this._state;
     },
 
-    addMessage() {
-        let newMessage = {
-            id: 4,
-            message: this._state.DialogsPage.newMessageText,
-        }
-        this._state.DialogsPage.MessageData.push(newMessage);
-        this._state.DialogsPage.newMessageText = ''; // нужно чтобы не отсавлять данные на сервере а после перезагрузки написанное убрать
-        this._callSubscriber(this._state);
-    },
-    updateNewMessageText(newText) {
-        this._state.DialogsPage.newMessageText = newText;
-        this._callSubscriber(this.state);
-    },
+
     subscribe(observer) {
         this._callSubscriber = observer
     },
     dispatch(action){
-        if (action.type === 'ADD-POST'){
+        if (action.type === ADD_POST){
             let newPost = {
                 id: 5,
                 post: this._state.ProfilePage.newPostText,
@@ -78,14 +69,42 @@ let store = {
             this._state.ProfilePage.PostData.push(newPost);
             this._state.ProfilePage.newPostText = '';
             this._callSubscriber(this._state);
-        }else if(action.type === 'UPDATE-NEW-POST-TEXT'){
+        }else if(action.type === UPDATE_NEW_POST_TEXT){
             this._state.ProfilePage.newPostText = action.newText;
             this._callSubscriber(this._state);
-            console.log('smth');
-            console.log()
+
+        }else if(action.type === 'ADD-MESSAGE'){
+            let newMessage = {
+                id: 4,
+                message: this._state.DialogsPage.newMessageText,
+            }
+            this._state.DialogsPage.MessageData.push(newMessage);
+            this._state.DialogsPage.newMessageText = ''; // нужно чтобы не отсавлять данные на сервере а после перезагрузки написанное убрать
+            this._callSubscriber(this._state);
+        }else if(action.type === 'UPDATE-NEW-MESSAGE-TEXT'){
+            this._state.DialogsPage.newMessageText = action.newText;
+            this._callSubscriber(this.state);
         }
     }
 }
+export const addPostActionCreator =() =>{
+
+    return {type: ADD_POST}
+}
+export const updateNewPostTextActionCreator =(text) =>{
+
+    return {type: UPDATE_NEW_POST_TEXT, newText:text}
+}
+export const addMessageActionCreator =() =>{
+
+    return {type: 'ADD-MESSAGE'}
+}
+export const updateNewMessageTextActionCreator =(text) =>{
+
+    return {type: 'UPDATE-NEW-MESSAGE-TEXT', newText:text}
+}
+
+
 
 
 export default store;

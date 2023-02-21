@@ -17,8 +17,6 @@ let renderEntireTree = (state) =>{
 
                  dispatch= {store.dispatch.bind(store)}
 
-                 updateNewMessageText = {store.updateNewMessageText.bind(store)}
-                 addMessage ={store.addMessage.bind(store)}
 
             />
 

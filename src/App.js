@@ -31,8 +31,7 @@ const App = (props) => {
 
                         <Route path="/dialogs/*" element={<Dialogs state = {props.appState.DialogsPage}
 
-                                                                   updateNewMessageText = {props.updateNewMessageText}
-                                                                   addMessage = {props.addMessage}
+                                                                   dispatch = {props.dispatch}
                                                                    newMessageText = {props.appState.DialogsPage.newMessageText}
                         />} />
 
