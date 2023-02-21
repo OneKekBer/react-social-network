@@ -7,23 +7,17 @@ import Dialogs from "./components/Dialogs/Dialogs";
 import {BrowserRouter, Route, Routes} from "react-router-dom";
 
 
-
-
-
-
-
 const App = (props) => {
-
     return (
         <BrowserRouter>
             <div className="wrapper">
                 <Header/>
                 <Nav state = {props.appState.SideBar}/>
+
                 <div className='wrapper-content'>
                     <Routes>
                         <Route path="/profile" element={<Profile ProfilePage = {props.appState.ProfilePage}
                                                                  dispatch = {props.dispatch}
-
 
                         />}/>
 
