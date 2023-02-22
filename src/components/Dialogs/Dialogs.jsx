@@ -2,33 +2,30 @@ import React from "react";
 import s from './Dialogs.module.css'
 import DialogItem from "./DialogItem/DialogItem";
 import Message from "./MessageItem/MessageItem";
-import {addMessageActionCreator, updateNewMessageTextActionCreator} from "../../redux/dialog-reducer";
+
 
 
 
 const Dialogs = (props) => {
-    let DialogElements = props.state.DialogData
+    let DialogElements = props.DialogData
         .map(d => <DialogItem name={d.name} id={d.id}/>)
 
-    let MessageElements = props.state.MessageData
+    let MessageElements = props.MessageData
         .map(m => <Message message={m.message} id={m.id}/>)
 
     let inputRef = React.createRef();
 
 
 
-    let addMessage = () => {
-        let text = inputRef.current.value;
-        props.dispatch(addMessageActionCreator())
-        // props.addMessage(text);
-        // props.updateNewMessageText(' ')
+    let onAddMessage = () => {
+        // let text = inputRef.current.value;
+        props.addMessage();
 
     }
 
     let onMessageChange = () =>{
         let text = inputRef.current.value;
-        props.dispatch(updateNewMessageTextActionCreator(text))
-        // props.updateNewMessageText(text);
+        props.updateNewMessageText(text);
 
     }
 
@@ -50,7 +47,7 @@ const Dialogs = (props) => {
                        onChange={onMessageChange}
                        value={props.newMessageText}
                 />
-                <button className={s.btn} onClick={addMessage}>click me</button>
+                <button className={s.btn} onClick={onAddMessage}>click me</button>
             </div>
         </div>
 
