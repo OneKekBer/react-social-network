@@ -1,0 +1,14 @@
+.main {
+    /* position: absolute;
+    left: 200px;
+    top:100px; */
+
+
+
+
+
+    padding: 30px;
+
+    display: flex;
+    flex-direction: column;
+}
