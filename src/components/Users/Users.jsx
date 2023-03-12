@@ -21,8 +21,8 @@ let Users = (props) =>{
                     <span className={s.user__container}>
                         <div className={s.logo__container}>
                             <div>
-                                <NavLink to={}>
-                                    <img className={s.logo} src={u.photos.small != null ? u.photos.small : user}/>
+                                <NavLink to={'/profile/' + u.id}>
+                                    <img alt='ava' className={s.logo} src={u.photos.small != null ? u.photos.small : user}/>
                                 </NavLink>
                             </div>
                             <div>

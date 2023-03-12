@@ -1,24 +1,39 @@
 import React from "react";
 
 import s from "./profileInfo.module.css";
-const ProfileInfo = () => {
+import Preloader from "../../common/preloader/preloader";
+const ProfileInfo = (props) => {
+    if(!props.profile){
+        return <div><Preloader/></div>
+    }
+
     return (
         <main className="main">
             <div className={s.img}></div>
             <div className={s.info}>
                 <img
                     className={s.info_logo}
-                    src="https://th.bing.com/th/id/R.94fb77ea8792301125b8ca604ed4c3e9?rik=MrxSCyEj01wCgw&pid=ImgRaw&r=0"
+                    src={props.profile.photos.small}
                     alt="ava"
                 />
                 <div className={s.info_text}>
-                    <h2>Ilya</h2>
-                    <p>16 years old</p>
-                    <p>dead inside</p>
-                    <p>1000-7</p>
+                    <h2>{props.profile.fullName}</h2>
+                    <p>{props.profile.aboutMe}</p>
+                    <p>{props.profile.lookingForAJob ? 'Ищу работу' : 'не ищу работу'}</p>
+                    <p>{props.profile.lookingForAJobDescription}</p>
                     <p>freelancer</p>
                 </div>
+
             </div>
+            {/*<div>*/}
+            {/*    <ul>*/}
+            {/*        <li><a href={props.profile.contacts.facebook}>Facebook</a></li>*/}
+            {/*        <li><a href={props.profile.contacts.vk}>VK</a></li>*/}
+            {/*        <li><a href={props.profile.contacts.twitter}>twitter</a></li>*/}
+            {/*        <li><a href={props.profile.contacts.instagram}>instagram</a></li>*/}
+            {/*        <li><a href={props.profile.contacts.vk}>VK</a></li>*/}
+            {/*    </ul>*/}
+            {/*</div>*/}
         </main>
     );
 };
