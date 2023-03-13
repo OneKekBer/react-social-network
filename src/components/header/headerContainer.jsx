@@ -13,10 +13,10 @@ class HeaderContainer extends React.Component{
                     let {id, email, login} = response.data.data;
                     this.props.setAuthUserData(id, email, login)
 
-                    // axios.get(`https://social-network.samuraijs.com/api/1.0/`)
-                    //     .then((response) => {
-                    //         this.props.setUserProfile(response.data);
-                    //     });
+                    axios.get(`https://social-network.samuraijs.com/api/1.0/profile/${id}`)
+                        .then((response) => {
+                            this.props.setUserProfile(response.data);
+                        });
                 }
             });
     }
