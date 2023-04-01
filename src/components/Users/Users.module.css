@@ -1,0 +1,50 @@
+.logo__container {
+    display: flex;
+    flex-direction: column;
+
+    margin-right: 20px;
+}
+
+.logo {
+    width: 100px;
+    height: 100px;
+}
+
+.user__container {
+    display: flex;
+
+    border-radius: 32px;
+    margin-bottom: 20px;
+    align-items: center;
+    background-color: rgba(197, 197, 197, 0.69);
+    padding: 20px;
+
+    font-weight: bold;
+
+}
+
+.info__container {
+    width: 50%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.btn {
+    border: none;
+    width: 100px;
+    height: 45px;
+    background-color: rgba(197, 197, 197, 0.69);
+    border-radius: 32px;
+}
+
+.btn:hover {
+    background-color: rgba(238, 238, 238, 0.69);
+}
+
+.btn:active {
+    background-color: white;
+}
+
+.selected {
+    color: blue;
+}

@@ -1,0 +1,29 @@
+.card *{
+    margin-bottom: 10px;
+}
+
+.wrapper {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+}
+.card{
+    background-color: #eeeeee;
+    padding: 50px 100px 50px 100px;
+    border-radius: 32px;
+    border: 2px solid rgba(77,255,36,0.69);
+
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.input{
+    color:black;
+    padding: 10px;
+    font-size: large;
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid black;
+
+}
