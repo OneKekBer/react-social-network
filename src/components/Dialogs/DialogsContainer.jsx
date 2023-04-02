@@ -3,7 +3,7 @@ import React from "react";
 
 import Dialogs from "./Dialogs";
 import {connect} from "react-redux";
-import {addMessage, updateNewMessageText} from "../../redux/dialog-reducer";
+import {addMessage} from "../../redux/dialog-reducer";
 
 import {Navigate} from "react-router-dom";
 import {withAuthRedirect} from "../../HOC/withAuthRedirect";

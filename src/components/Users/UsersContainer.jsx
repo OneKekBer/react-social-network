@@ -15,10 +15,10 @@ import {withAuthRedirect} from "../../HOC/withAuthRedirect";
 import {compose} from "redux";
 import {
     getCurrentPage, getFollowingInProgress, getIsFetching,
-    geTotalUsersCount,
+
     getPageSize,
     getTotalUsersCount,
-    getUsersData
+    getUsersData,
 } from "../../redux/users-selector";
 
 
@@ -34,6 +34,7 @@ class UsersContainer extends React.Component {
     }
 
     render() {
+
         if(!this.props.isAuth){
             return <Navigate to="/login" />;
         }
@@ -71,7 +72,9 @@ class UsersContainer extends React.Component {
 // }
 
 let mapStateToProps = (state) => {
+
     return {
+
         usersData: getUsersData(state),
         pageSize: getPageSize(state),
         totalUsersCount: getTotalUsersCount(state),

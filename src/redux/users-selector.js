@@ -1,11 +1,16 @@
 import React from "react";
+import {createSelector} from "reselect";
 
 export const getPageSize = (state)=>{
     return state.UsersPage.pageSize;
 }
-export const getUsersData = (state)=>{
+const getUsersDataSelector = (state)=>{
     return state.UsersPage.usersData
 }
+export const  getUsersData= createSelector(getUsersDataSelector, (usersData) => {
+    return usersData.filter(u =>true)
+})
+
 export const getTotalUsersCount = (state)=>{
     return state.UsersPage.totalUsersCount
 }

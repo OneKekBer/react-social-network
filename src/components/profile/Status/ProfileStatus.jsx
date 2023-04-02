@@ -1,5 +1,5 @@
-import React, {useState} from "react";
-import s from "./../profile.module.css";
+import React from "react";
+
 
 class ProfileStatus extends React.Component {
 
